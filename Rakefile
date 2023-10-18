@@ -24,9 +24,9 @@ task :extract do
   step "Extracting core files" do
     `rm -rf tmp/tinymce`
     `unzip -u tmp/tinymce.zip -d tmp`
-    `rm -rf vendor/assets/javascripts/tinymce`
-    `mkdir -p vendor/assets/javascripts/tinymce`
-    `mv tmp/tinymce/js/tinymce/* vendor/assets/javascripts/tinymce/`
+    `rm -rf app/assets/javascripts/tinymce`
+    `mkdir -p app/assets/javascripts/tinymce`
+    `mv tmp/tinymce/js/tinymce/* app/assets/javascripts/tinymce/`
   end
 
   step "Extracting unminified source" do
@@ -39,11 +39,11 @@ end
 
 task :rename do
   step "Renaming files" do
-    Dir["vendor/assets/javascripts/tinymce/**/*.min.js"].each do |file|
+    Dir["app/assets/javascripts/tinymce/**/*.min.js"].each do |file|
       FileUtils.mv(file, file.sub(/\.min\.js$/, '.js'))
     end
 
-    Dir["vendor/assets/javascripts/tinymce/**/*.min.css"].each do |file|
+    Dir["app/assets/javascripts/tinymce/**/*.min.css"].each do |file|
       FileUtils.cp(file, file.sub(/\.min\.css$/, '.css'))
     end
   end

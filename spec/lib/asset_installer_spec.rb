@@ -3,7 +3,7 @@ require "tinymce/rails/asset_installer"
 module TinyMCE
   module Rails
     describe AssetInstaller do
-      let(:assets) { Pathname.new(File.expand_path(File.dirname(__FILE__) + "/../../vendor/assets/javascripts/tinymce")) }
+      let(:assets) { Pathname.new(File.expand_path(File.dirname(__FILE__) + "/../../app/assets/javascripts/tinymce")) }
       let(:target) { "/assets" }
       let(:manifest_path) { nil }
       let(:manifest) { double.as_null_object }
